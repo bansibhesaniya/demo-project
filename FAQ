@@ -1,0 +1,658 @@
+
+
+
+
+
+<section class="faq-section">
+  <div class="container">
+    <div class="faq-inner">
+      {% if section.settings.header_title != blank %}
+        <div class="section-header text-left faq-accordion">
+          <h1 class="title--large">
+            {{ section.settings.header_title }}
+          </h1>
+        </div>
+      {% endif %}
+      <div class="page-content">
+        {% if section.settings.show_faqs_1 %}
+          <div class="faqs-paragraph">
+            <h3 class="faq-title">{{ section.settings.faqs_1_title }}</h3>
+            <div id="accordion" class="faq-accordion">
+              {% assign index = 0 %}
+              {% for block in section.blocks %}
+                {% assign index = forloop.index0 %}
+                {% if block.settings.faq_type == '1' %}
+                  <div class="card">
+                    <div class="card-header" id="heading-{{ block.id }}">
+                      <button
+                        class="qs-title {{index}}"
+                        data-toggle="collapse"
+                        data-target="#s{{ block.id }}"
+                        aria-expanded="false"
+                        aria-controls="s{{ block.id }}">
+                        <h3>{{ block.settings.question_faqs }}</h3>
+                        <span class="icon-plus"></span>
+
+                      </button>
+                      <div
+                        id="s{{ block.id }}"
+                        class="collapse {{index}} "
+                        aria-labelledby="heading-{{ block.id }}"
+                        data-parent="#accordion">
+                        <div class="card-body">
+                          <h3>
+                            {{ block.settings.answer_faqs }}
+                          </h3>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+        {% if section.settings.show_faqs_2 %}
+          <div class="faqs-paragraph">
+            <h3 class="faq-title">{{ section.settings.faqs_2_title }}</h3>
+            <div id="accordion2" class="faq-accordion">
+
+              {% for block in section.blocks %}
+                {% if block.settings.faq_type == '2' %}
+
+                  <div class="card">
+                    <div class="card-header" id="heading-{{ block.id }}">
+                      <button
+                        class="qs-title"
+                        data-toggle="collapse"
+                        data-target="#s{{ block.id }}"
+                        aria-expanded="false"
+                        aria-controls="s{{ block.id }}">
+                        <h3>{{ block.settings.question_faqs }}</h3>
+                        <span class="icon-plus"></span>
+
+                      </button>
+                      <div
+                        id="s{{ block.id }}"
+                        class="collapse"
+                        aria-labelledby="heading-{{ block.id }}"
+                        data-parent="#accordion2">
+                        <div class="card-body">
+                            <h3>
+                                {{ block.settings.answer_faqs }}
+                              </h3>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+        {% if section.settings.show_faqs_3 %}
+          <div class="faqs-paragraph">
+            <h3 class="faq-title">{{ section.settings.faqs_3_title }}</h3>
+            <div id="accordion3" class="faq-accordion">
+
+              {% for block in section.blocks %}
+                {% if block.settings.faq_type == '3' %}
+
+                  <div class="card">
+                    <div class="card-header" id="heading-{{ block.id }}">
+                      <button
+                        class="qs-title"
+                        data-toggle="collapse"
+                        data-target="#s{{ block.id }}"
+                        aria-expanded="false"
+                        aria-controls="s{{ block.id }}">
+                        <h3>{{ block.settings.question_faqs }}</h3>
+                        <span class="icon-plus"></span>
+
+                      </button>
+                      <div
+                        id="s{{ block.id }}"
+                        class="collapse"
+                        aria-labelledby="heading-{{ block.id }}"
+                        data-parent="#accordion2">
+                        <div class="card-body">
+                            <h3>
+                                {{ block.settings.answer_faqs }}
+                              </h3>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+        {% if section.settings.faq_text != blank %}
+          <div class="faq-content faq-bottom text-right">
+            <p>{{ section.settings.faq_text }}
+              <a href="{{section.settings.btn_text_link}}" class="btn btn--primary">{{ section.settings.btn_text }}</a>
+            </p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  h1.title--large {
+    margin: 0;
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #222;
+  }
+  .faq-accordion {
+    padding-bottom: 45px;
+  }
+
+
+  /*
+   .collapse { 
+   display: none; 
+   }
+*/
+
+.faq-inner {
+    width: 100%;
+    max-width: 840px;
+    margin: 0 auto;
+}
+  section.faq-section {
+    padding: 40px 0;
+  }
+  .collapse.show {
+    display: block;
+  }
+  .social-icons-style2 .social-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 18px;
+    overflow: hidden;
+    color: #213e59;
+    margin-top: 10px;
+  }
+
+  .social-icons-style2 .social-icon:hover {
+    color: #f4ad57;
+  }
+
+  .social-icons-style2 .social-icon svg {
+    height: 100%;
+    width: 100%;
+  }
+
+  .faqs-paragraph__footer {
+    text-align: right;
+    padding: 11px 13px 30px;
+  }
+
+  .card {
+    border: none;
+    margin-bottom: 15px;
+  }
+
+  .card .collapse {
+    position: relative;
+    /* padding: 20px 25px; */
+  }
+
+  .card-header {
+    border-radius: 0 !important;
+    position: relative;
+    background-color: #ffffff;
+    border: none;
+    padding: 0;
+  }
+
+  .card-header .qs-title {
+    width: 100%;
+    color: #274b4f;
+    border: none;
+    text-transform: none;
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 14px;
+    cursor: pointer;
+    border-bottom: 1px solid #dcdcdc !important;
+    position: relative;
+  }
+
+  .card-header .qs-title h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+   color:#222222;
+    line-height: 28px;
+    padding-right: 45px;
+    text-align: left;
+  }
+  .card-body  h3{
+    font-size: 14px;
+    font-weight: 400;
+    color: #222;
+    line-height: 1.8;
+    margin: 0;
+  }
+  .card-body{
+    padding: 25px 0;
+
+  }
+  .card-header .icon-plus {
+    top: 30%;
+    right: 10px;
+    width: 18px;
+    height: 18px;
+    z-index: 2;
+    pointer-events: none;
+    display: inline-block;
+    position: absolute;
+    transform: translateY(-50%);
+}
+
+  .card-header .icon-plus:before {
+    top: 50%;
+    right: 50%;
+    z-index: 2;
+    content: "";
+    width: 2px;
+    height: 16px;
+    position: absolute;
+    transition: all 0.3s ease;
+    transform: translate(50%, -50%);
+    background-color: #222222;
+  }
+
+  .card-header .icon-plus:after {
+    top: 50%;
+    right: 50%;
+    z-index: 2;
+    content: "";
+    width: 16px;
+    height: 2px;
+    position: absolute;
+    transform: translate(50%, -50%);
+    background-color: #222222;
+  }
+
+  .card-header .qs-title:not(.collapsed) h3 {
+    position: relative;
+  }
+
+
+
+ 
+ 
+
+  .card .collapsing > span,
+  .card .collapse > span {
+    width: 70px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    background-color: #d2e0df;
+    color: #191919;
+    border-radius: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 15px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: absolute;
+    top: 22px;
+    left: 0;
+  }
+
+ 
+
+  .faq-content {
+    padding: 30px 0;
+  }
+
+  .faq-group__item {
+    width: 50%;
+  }
+
+  .faq-group__item .icon {
+    display: block;
+    margin: 0 auto 6px;
+    width: 22px;
+    height: 22px;
+    color: #1e1e1e;
+    fill: #1e1e1e;
+  }
+  h3.faq-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: #222222;
+    line-height: 1.2;
+    padding-bottom: 24px;
+    text-transform: capitalize;
+
+  }
+  .faq-group__item .text {
+    color: #787878;
+    font-weight: 400;
+    text-transform: capitalize;
+    text-underline-position: under;
+    text-decoration: underline;
+  }
+  /* .card-header button[aria-expanded="true"] {
+    background-color: #f0f4f2;
+  } */
+
+
+  /*
+
+   @media (min-width: 1025px) { 
+
+   .faq-title { 
+   padding-bottom: 1px; 
+   } 
+
+   .faq-content { 
+   padding: 50px 0; 
+   } 
+
+   .faq-content a { 
+   min-width: 250px; 
+   margin: 0 0 0 25px; 
+   } 
+   } 
+*/
+
+  .card-header button[aria-expanded="true"] + .collapse {
+    opacity: 1;
+    max-height: 9em;
+    transition: all 200ms linear;
+    will-change: opacity , max-height;
+  }
+  .card-header button[aria-expanded="true"] .icon-plus::before {
+    transform: translateY(-50%) rotate(90deg);
+}
+  .collapse {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 200ms linear , max-height 200ms linear;
+    will-change: opacity , max-height;
+  }
+ 
+</style>
+
+
+{% schema %}
+  {
+    "name": "Page Content",
+    "class": "page-content",
+    "settings": [
+
+      {
+        "type": "header",
+        "content": "Heading Title"
+      },
+      {
+        "type": "text",
+        "id": "header_title",
+        "label": "Title",
+        "default": "Frequently Asked Questions"
+      },
+      {
+        "type": "header",
+        "content": "Sidebar Links"
+      },
+      {
+        "type": "url",
+        "id": "link_1",
+        "label": "Messenger link"
+      }, {
+        "type": "url",
+        "id": "link_2",
+        "label": "Contact link"
+      }, {
+        "type": "header",
+        "content": "FAQs"
+      }, {
+        "type": "checkbox",
+        "id": "show_faqs_1",
+        "label": "Show FAQs Paragraph 1",
+        "default": true
+      }, {
+        "type": "text",
+        "id": "faqs_1_title",
+        "label": "FAQs Paragraph 1 Title",
+        "default": "Orders"
+      }, {
+        "type": "checkbox",
+        "id": "show_faqs_2",
+        "label": "Show FAQs Paragraph 2",
+        "default": true
+      }, {
+        "type": "text",
+        "id": "faqs_2_title",
+        "label": "FAQs Paragraph 2 Title",
+        "default": "Shipping"
+      }, {
+        "type": "checkbox",
+        "id": "show_faqs_3",
+        "label": "Show FAQs Paragraph 3",
+        "default": true
+      }, {
+        "type": "text",
+        "id": "faqs_3_title",
+        "label": "FAQs Paragraph 3 Title",
+        "default": "Payment"
+      }, {
+        "type": "header",
+        "content": "Text on Bottom"
+      }, {
+        "type": "text",
+        "id": "faq_text",
+        "label": "Text"
+      }, {
+        "type": "text",
+        "id": "btn_text",
+        "label": "Button Text"
+      }, {
+        "type": "url",
+        "id": "btn_text_link",
+        "label": "Button Link"
+      }
+
+    ],
+    "blocks": [
+      {
+        "type": "question",
+        "name": "Question",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question_faqs",
+            "label": "Question",
+            "default": "Question"
+          }, {
+            "type": "html",
+            "id": "answer_faqs",
+            "label": "Answer",
+            "default": "<p>Use overlay text to give your customers insight into your brand. Select image and text that relates to your style and story.</p>"
+          }, {
+            "type": "select",
+            "id": "faq_type",
+            "label": "Position",
+            "options": [
+              {
+                "value": "1",
+                "label": "1"
+              }, {
+                "value": "2",
+                "label": "2"
+              }, {
+                "value": "3",
+                "label": "3"
+              }
+            ],
+            "default": "1"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+
+<script>
+    const items = document.querySelectorAll(".card-header button");
+  function toggleAccordion() {
+  const itemToggle = this.getAttribute('aria-expanded');
+  
+  for (i = 0; i < items.length; i++) {
+    items[i].setAttribute('aria-expanded', 'false');
+  }
+  
+  if (itemToggle == 'false') {
+    this.setAttribute('aria-expanded', 'true');
+  }
+  }
+  
+  items.forEach(item => item.addEventListener('click', toggleAccordion));
+</script>
+
+==================================================================================================================================================================================
+
+
+data: json
+
+
+{
+  "sections": {
+    "main": {
+      "type": "faq-template",
+      "blocks": {
+        "block-1": {
+          "type": "question",
+          "settings": {
+            "question_faqs": "Bring of had which their whose you're it own?",
+            "answer_faqs": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+            "faq_type": "1"
+          }
+        },
+        "question_wd6DxR": {
+          "type": "question",
+          "settings": {
+            "question_faqs": "Bring of had which their whose you're it own?",
+            "answer_faqs": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+            "faq_type": "2"
+          }
+        },
+        "question_qDFfUN": {
+          "type": "question",
+          "settings": {
+            "question_faqs": "Bring of had which their whose you're it own?",
+            "answer_faqs": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+            "faq_type": "3"
+          }
+        },
+        "question_yrpNYA": {
+          "type": "question",
+          "settings": {
+            "question_faqs": "Over shall air can't subdue fly divide him?",
+            "answer_faqs": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+            "faq_type": "1"
+          }
+        },
+        "question_H6wyjB": {
+          "type": "question",
+          "settings": {
+            "question_faqs": "Over shall air can't subdue fly divide him?",
+            "answer_faqs": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+            "faq_type": "2"
+          }
+        },
+        "question_VQ6Xdp": {
+          "type": "question",
+          "settings": {
+            "question_faqs": "Over shall air can't subdue fly divide him?",
+            "answer_faqs": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+            "faq_type": "3"
+          }
+        },
+        "question_MzLa8J": {
+          "type": "question",
+          "settings": {
+            "question_faqs": "Waters one you'll creeping?",
+            "answer_faqs": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+            "faq_type": "1"
+          }
+        },
+        "question_ynn8Mg": {
+          "type": "question",
+          "settings": {
+            "question_faqs": "Waters one you'll creeping?",
+            "answer_faqs": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+            "faq_type": "2"
+          }
+        },
+        "question_CK6LRa": {
+          "type": "question",
+          "settings": {
+            "question_faqs": "Waters one you'll creeping?",
+            "answer_faqs": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+            "faq_type": "3"
+          }
+        }
+      },
+      "block_order": [
+        "block-1",
+        "question_wd6DxR",
+        "question_qDFfUN",
+        "question_yrpNYA",
+        "question_H6wyjB",
+        "question_VQ6Xdp",
+        "question_MzLa8J",
+        "question_ynn8Mg",
+        "question_CK6LRa"
+      ],
+      "settings": {
+        "header_title": "FREQUENTLY ASKED QUESTIONS",
+        "link_1": "",
+        "link_2": "",
+        "show_faqs_1": true,
+        "faqs_1_title": "Orders",
+        "show_faqs_2": true,
+        "faqs_2_title": "Shipping",
+        "show_faqs_3": true,
+        "faqs_3_title": "Payment",
+        "faq_text": "",
+        "btn_text": "",
+        "btn_text_link": "shopify:\/\/blogs\/news"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
