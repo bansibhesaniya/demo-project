@@ -1,0 +1,67 @@
+<div class="quick ">
+<div id="quick-view">
+  <div class="qv-product-images"></div>
+
+   <div class="qv-content">
+   <div class="holder">
+      <h3 class="qv-product-title"></h3>
+      <h4 class="qv-product-type"></h4>
+      <h5 class="qv-product-original-price"></h5>
+      <h5 class="qv-product-price"></h5>
+      <div class="qv-product-description"></div>
+      <div class="qv-add-to-cart"></div>
+      <div class="qv-product-options"></div>
+      <div class="product-btn product-content-padding">
+          <div class="qtydiv product-title-container">
+          <label>quantity</label>
+              <div class="quick-qtybox quick-qtyplus">
+              <span class="quick-btnqty">-</span>
+              <input
+                  type="text"
+                  id="quick-quantity"
+                  name="quantity"
+                  value="1"
+                  min="1"
+                  size="1"
+                  class="quantity-selector quick-input" 
+                  readonly>
+              <span class="quick-btnqty quick-qtyplus">+</span>
+            </div> 
+        </div>
+        <div class="quick-qty"></div>
+        <div class="qv-add"></div>
+      </div>
+      </div>
+
+        <div class="qv-add-to-cart-response"></div>
+          <div class="qv-view-product">
+              <a class="qv-product" href=" "></a>
+          </div>
+        </div>
+
+    <div class="qv-product-close">
+        <svg class="drawer-close-icon" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 0 413.348 413.348" width="20" fill="none">
+        <path
+            d="M413.348 24.354L388.994 0l-182.32 182.32L24.354 0 0 24.354l182.32 182.32L0 388.994l24.354 24.354 182.32-182.32 182.32 182.32 24.354-24.354-182.32-182.32z" fill="#fff">
+        </path>
+        </svg> 
+    </div> 
+</div>
+
+</div>
+
+ <script>
+   $('.quick-qtybox .quick-btnqty').on('click', function(){
+     var qty = parseInt($(this).parent('.quick-qtybox').find('.quick-input').val());
+     if($(this).hasClass('quick-qtyplus')) {
+       qty++;
+     }else {
+       if(qty > 1) {
+         qty--;
+       }
+     }
+      qtyq =  $(this).parent('.quick-qtybox').find('.quick-input').val(qty);
+
+  });
+   
+</script> 
